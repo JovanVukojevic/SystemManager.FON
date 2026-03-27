@@ -1,0 +1,30 @@
+# AI tooling
+.claude/
+CLAUDE.md
+CLAUDE-ANGULAR.md
+
+# IDE / Editor
+.vscode/
+.vs/
+*.user
+*.suo
+
+# .NET build output
+bin/
+obj/
+
+# Angular / Node build output
+node_modules/
+dist/
+.angular/
+
+# .NET environment-specific config (may contain secrets)
+appsettings.*.json
+!appsettings.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Misc
+*.log

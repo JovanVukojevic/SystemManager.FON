@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button routerLink="/">
+    <mat-icon>home</mat-icon>
+  </button>
+  <span routerLink="/" style="cursor:pointer">System Manager</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" [opened]="activeSubsystem() !== null" class="sidenav">
+    <mat-nav-list>
+      @if (activeSubsystem() === 'ispit') {
+        <div class="section-header">ISPIT</div>
+        <a mat-list-item routerLink="/ispit/zvanje" routerLinkActive="active">Zvanja</a>
+        <a mat-list-item routerLink="/ispit/predmet" routerLinkActive="active">Predmeti</a>
+        <a mat-list-item routerLink="/ispit/nastavnik" routerLinkActive="active">Nastavnici</a>
+        <a mat-list-item routerLink="/ispit/student" routerLinkActive="active">Studenti</a>
+        <a mat-list-item routerLink="/ispit/ispit" routerLinkActive="active">Ispiti</a>
+      }
+      @if (activeSubsystem() === 'projekat') {
+        <div class="section-header">PROJEKAT</div>
+        <a mat-list-item routerLink="/projekat/radnomesto" routerLinkActive="active">Radna mesta</a>
+        <a mat-list-item routerLink="/projekat/sluzba" routerLinkActive="active">Službe</a>
+        <a mat-list-item routerLink="/projekat/projekat" routerLinkActive="active">Projekti</a>
+        <a mat-list-item routerLink="/projekat/radnik" routerLinkActive="active">Radnici</a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

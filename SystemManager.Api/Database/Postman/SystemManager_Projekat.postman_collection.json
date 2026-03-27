@@ -1,0 +1,420 @@
+{
+  "info": {
+    "name": "SystemManager — PROJEKAT",
+    "_postman_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "description": "PROJEKAT subsystem: RadnoMesto, Sluzba, Projekat, Radnik (with nested Isplata)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "RadnoMesto",
+      "item": [
+        {
+          "name": "Get All RadnaMesta",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnomesto",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnomesto"]
+            }
+          }
+        },
+        {
+          "name": "Get RadnoMesto By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnomesto/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnomesto", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create RadnoMesto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Senior Developer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnomesto",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnomesto"]
+            }
+          }
+        },
+        {
+          "name": "Update RadnoMesto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Lead Developer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnomesto/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnomesto", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete RadnoMesto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnomesto/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnomesto", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sluzba",
+      "item": [
+        {
+          "name": "Get All Sluzbe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/sluzba",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "sluzba"]
+            }
+          }
+        },
+        {
+          "name": "Get Sluzba By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/sluzba/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "sluzba", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Sluzba",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"IT Sektor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/sluzba",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "sluzba"]
+            }
+          }
+        },
+        {
+          "name": "Update Sluzba",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"IT i Razvoj\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/sluzba/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "sluzba", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Sluzba",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/sluzba/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "sluzba", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projekat",
+      "item": [
+        {
+          "name": "Get All Projekti",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/projekat",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "projekat"]
+            }
+          }
+        },
+        {
+          "name": "Get Projekat By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/projekat/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "projekat", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Projekat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"ERP System\",\n  \"budzet\": 150000.00,\n  \"rukovodiRadnikId\": 1,\n  \"radnici\": [\n    {\n      \"radnikId\": 1,\n      \"datumOd\": \"2024-01-01\",\n      \"datumDo\": null\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/projekat",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "projekat"]
+            }
+          }
+        },
+        {
+          "name": "Update Projekat",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"ERP System v2\",\n  \"budzet\": 200000.00,\n  \"rukovodiRadnikId\": 1,\n  \"radnici\": [\n    {\n      \"radnikId\": 1,\n      \"datumOd\": \"2024-01-01\",\n      \"datumDo\": null\n    },\n    {\n      \"radnikId\": 2,\n      \"datumOd\": \"2024-03-01\",\n      \"datumDo\": null\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/projekat/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "projekat", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Projekat",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/projekat/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "projekat", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Radnik",
+      "item": [
+        {
+          "name": "Get All Radnici",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnik",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnik"]
+            }
+          }
+        },
+        {
+          "name": "Get Radnik By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnik", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Radnik",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ime\": \"Ana Nikolic\",\n  \"radnoMestoId\": 1,\n  \"sluzbaId\": 1,\n  \"projekti\": [\n    {\n      \"projekatId\": 1,\n      \"datumOd\": \"2024-01-01\",\n      \"datumDo\": null\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnik",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnik"]
+            }
+          }
+        },
+        {
+          "name": "Update Radnik",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ime\": \"Ana Nikolic\",\n  \"radnoMestoId\": 1,\n  \"sluzbaId\": 1,\n  \"projekti\": [\n    {\n      \"projekatId\": 1,\n      \"datumOd\": \"2024-01-01\",\n      \"datumDo\": \"2024-12-31\"\n    },\n    {\n      \"projekatId\": 2,\n      \"datumOd\": \"2025-01-01\",\n      \"datumDo\": null\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnik", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Radnik",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/projekat/radnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "projekat", "radnik", "1"]
+            }
+          }
+        },
+        {
+          "name": "Isplate",
+          "item": [
+            {
+              "name": "Get Isplate By Radnik",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/projekat/radnik/1/isplate",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "projekat", "radnik", "1", "isplate"]
+                }
+              }
+            },
+            {
+              "name": "Create Isplata",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vrsta\": \"Plata\",\n  \"datum\": \"2024-06-01\",\n  \"iznos\": 95000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/projekat/radnik/1/isplate",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "projekat", "radnik", "1", "isplate"]
+                }
+              }
+            },
+            {
+              "name": "Update Isplata",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vrsta\": \"Plata\",\n  \"datum\": \"2024-07-01\",\n  \"iznos\": 100000.00\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/projekat/radnik/1/isplate/1",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "projekat", "radnik", "1", "isplate", "1"]
+                }
+              }
+            },
+            {
+              "name": "Delete Isplata",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/projekat/radnik/1/isplate/1",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["api", "projekat", "radnik", "1", "isplate", "1"]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

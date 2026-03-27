@@ -1,0 +1,432 @@
+{
+  "info": {
+    "name": "SystemManager — ISPIT",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "description": "ISPIT subsystem: Student, Predmet, Zvanje, Nastavnik, Ispit",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Student",
+      "item": [
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/student",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "student"]
+            }
+          }
+        },
+        {
+          "name": "Get Student By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/student/2021%2F0001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "student", "2021%2F0001"]
+            }
+          }
+        },
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brojIndeksa\": \"26/0001\",\n  \"ime\": \"Marko Markovic\",\n  \"semestar\": \"IV\",\n  \"datumRodjenja\": \"2002-03-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/student",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "student"]
+            }
+          }
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ime\": \"Marko Markovic\",\n  \"semestar\": \"V\",\n  \"datumRodjenja\": \"2002-03-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/student/2021%2F0001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "student", "2021%2F0001"]
+            }
+          }
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/student/2021%2F0001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "student", "2021%2F0001"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Predmet",
+      "item": [
+        {
+          "name": "Get All Predmeti",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/predmet",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "predmet"]
+            }
+          }
+        },
+        {
+          "name": "Get Predmet By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/predmet/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "predmet", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Predmet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Baze Podataka\",\n  \"espb\": 6\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/predmet",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "predmet"]
+            }
+          }
+        },
+        {
+          "name": "Update Predmet",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Baze Podataka II\",\n  \"espb\": 8\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/predmet/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "predmet", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Predmet",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/predmet/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "predmet", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Zvanje",
+      "item": [
+        {
+          "name": "Get All Zvanja",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/zvanje",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "zvanje"]
+            }
+          }
+        },
+        {
+          "name": "Get Zvanje By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/zvanje/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "zvanje", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Zvanje",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Docent\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/zvanje",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "zvanje"]
+            }
+          }
+        },
+        {
+          "name": "Update Zvanje",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"naziv\": \"Vanredni Profesor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/zvanje/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "zvanje", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Zvanje",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/zvanje/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "zvanje", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nastavnik",
+      "item": [
+        {
+          "name": "Get All Nastavnici",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/nastavnik",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "nastavnik"]
+            }
+          }
+        },
+        {
+          "name": "Get Nastavnik By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/nastavnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "nastavnik", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Nastavnik",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ime\": \"Prof. Petrovic\",\n  \"idZvanje\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/nastavnik",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "nastavnik"]
+            }
+          }
+        },
+        {
+          "name": "Update Nastavnik",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ime\": \"Prof. Dr. Petrovic\",\n  \"idZvanje\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/nastavnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "nastavnik", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Nastavnik",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/nastavnik/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "nastavnik", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ispit",
+      "item": [
+        {
+          "name": "Get All Ispiti",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/ispit",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "ispit"]
+            }
+          }
+        },
+        {
+          "name": "Get Ispit By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/ispit/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "ispit", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Ispit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brojIndeksa\": \"2021/0001\",\n  \"idPredmet\": 1,\n  \"idNastavnik\": 1,\n  \"ocena\": 9,\n  \"datumPolaganja\": \"2024-06-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/ispit",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "ispit"]
+            }
+          }
+        },
+        {
+          "name": "Update Ispit",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brojIndeksa\": \"2021/0001\",\n  \"idPredmet\": 1,\n  \"idNastavnik\": 1,\n  \"ocena\": 10,\n  \"datumPolaganja\": \"2024-06-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/ispit/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "ispit", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Ispit",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ispit/ispit/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ispit", "ispit", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
