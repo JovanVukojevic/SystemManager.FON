@@ -1,21 +1,20 @@
 # SystemManager
 
-Admin application over two small business domains — exam records and project/payroll
-records — built as a student project for **Data Access Programming**
-(*Програмирање приступа подацима*) at the Faculty of Organizational Sciences,
+Admin application for two small business domains, exam records and project/payroll
+records, built as a student project for **Data Access Programming**
+(*Programiranje pristupa podacima*) at the Faculty of Organizational Sciences,
 University of Belgrade.
 
-The point of the assignment was to keep business logic in the database and build an
-application on top of it that never writes an ad-hoc SQL statement.
+The assignment was to keep the business logic in the database and build an application
+on top of it that doesn't write any ad-hoc SQL.
 
-- `SystemManager.Api/` — .NET 9 solution (Domain, Application, Infrastructure, Api) and
+- `SystemManager.Api/`: .NET 9 solution (Domain, Application, Infrastructure, Api) and
   the SQL scripts for both databases
-- `SystemManager.Web/` — Angular 21 admin frontend
+- `SystemManager.Web/`: Angular 21 admin frontend
 
-Two independent subsystems — **ISPIT** (students, subjects, teachers, exams) and
-**PROJEKAT** (workers, departments, projects, payments) — with separate databases,
-connection factories and route prefixes. The frontend asks which one you want on the
-landing page.
+There are two independent subsystems, **ISPIT** (students, subjects, teachers, exams) and
+**PROJEKAT** (workers, departments, projects, payments), with separate databases,
+connection factories and route prefixes. You pick one on the landing page.
 
 ## Database
 
@@ -28,19 +27,19 @@ schemas with a strict dependency direction:
 | `spec` | validation, error handling, CRUD procedures (`spr_*`) | `impl` |
 | `api` | thin wrappers (`usp_*`) | `spec` |
 
-The application only ever calls `api.usp_*`, so the physical schema can be reworked without
-touching a line of C#. Validation and business rules live in `spec` procedures and `impl`
-triggers; every table has a matching `_Audit` table, and failures are logged through
+The application only calls `api.usp_*`, so the physical schema can change without any
+changes to the C# code. Validation and business rules are in `spec` procedures and `impl`
+triggers. Every table has a matching `_Audit` table, and errors are logged through
 `spec.HandleError` before being rethrown.
 
-Scripts are numbered 01–09 under `Database/SqlServer/` and `Database/Postgresql/`, each with
+Scripts are numbered 01-09 under `Database/SqlServer/` and `Database/Postgresql/`, each with
 an `IspitDB` and a `ProjekatDB` folder. Postman collections are in `Database/Postman/`.
 
 ## API
 
 ASP.NET Core 9, layered Domain → Application → Infrastructure → Api. Dapper only, no Entity
-Framework. Services work with domain entities; mapping to DTOs happens in controllers via
-AutoMapper. Navigation properties come back fully populated from a single procedure call
+Framework. Services work with domain entities, and mapping to DTOs is done in controllers
+with AutoMapper. Navigation properties are populated from a single procedure call
 using Dapper multi-mapping.
 
 Switching between engines is one line in `appsettings.json`:
@@ -49,22 +48,22 @@ Switching between engines is one line in `appsettings.json`:
 "DatabaseSettings": { "Provider": "SqlServer" }
 ```
 
-`Program.cs` then registers the matching set of repositories — nothing above the
-Infrastructure layer changes. `GET /api/config` reports which provider is running.
+`Program.cs` then registers the matching set of repositories, and nothing above the
+Infrastructure layer changes. `GET /api/config` returns the provider currently in use.
 
-Controllers and services contain no try/catch. One middleware maps database exceptions to
-422 (trigger or validation rejection), 409 (duplicate key) or 500, passing the database's own
-message through so the UI can show why a write was refused.
+Controllers and services contain no try/catch. A middleware maps database exceptions to
+422 (trigger or validation rejection), 409 (duplicate key) or 500, and passes the database
+error message through so the UI can show why a write failed.
 
 ## Frontend
 
-Angular 21 — standalone components, signals, Angular Material, no NgRx. List page plus
-create/edit dialogs per entity, reactive forms, a shared searchable autocomplete built as a
-`ControlValueAccessor`, and Serbian date formatting through a custom adapter. Client-side
-validation is deliberately thin — the database is the authority, and its error message is
-what the user sees.
+Angular 21 with standalone components, signals and Angular Material, no NgRx. Each entity
+has a list page with create/edit dialogs and reactive forms. There's a shared searchable
+autocomplete implemented as a `ControlValueAccessor`, and Serbian date formatting through
+a custom adapter. Client-side validation is minimal since the database handles it, and the
+user sees the database error message.
 
 ## Not included
 
-Written for an exam, so: no authentication, no test suite beyond the CLI scaffold, and
-connection strings sitting in `appsettings.json` as plain text.
+This was written for an exam, so there's no authentication, no tests beyond the CLI
+scaffold, and connection strings are in plain text in `appsettings.json`.
