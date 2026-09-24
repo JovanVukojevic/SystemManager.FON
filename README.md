@@ -24,10 +24,10 @@ schemas with a strict dependency direction:
 | Schema | Holds | May reference |
 |---|---|---|
 | `impl` | tables, audit tables, triggers, error log | its own objects only |
-| `spec` | validation, error handling, CRUD procedures (`spr_*`) | `impl` |
-| `api` | thin wrappers (`usp_*`) | `spec` |
+| `spec` | validation, error handling, CRUD procedures | `impl` |
+| `api` | thin wrappers  | `spec` |
 
-The application only calls `api.usp_*`, so the physical schema can change without any
+The application only calls `api.*`, so the physical schema can change without any
 changes to the C# code. Validation and business rules are in `spec` procedures and `impl`
 triggers. Every table has a matching `_Audit` table, and errors are logged through
 `spec.HandleError` before being rethrown.
